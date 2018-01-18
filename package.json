@@ -1,0 +1,23 @@
+{
+  "name": "my-npm-scaffold",
+  "version": "1.0.0",
+  "description": "my npm module scaffold 我的 npm 包的脚手架",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teeeemoji/my-npm-scaffold.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/teeeemoji/my-npm-scaffold/issues"
+  },
+  "homepage": "https://github.com/teeeemoji/my-npm-scaffold#readme",
+  "devDependencies": {
+    "lodash": "^4.17.4"
+  }
+}
