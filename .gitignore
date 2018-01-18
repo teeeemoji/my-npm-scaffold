@@ -4,6 +4,9 @@ dist
 # idea
 .idea
 
+# mocha test report
+mochawesome-report
+
 # Logs
 logs
 *.log
