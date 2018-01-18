@@ -1,14 +1,14 @@
 import Channel from './channel';
 
 export default class Mediator {
-
+  
   // 私有属性channel
   channels;
-
+  
   constructor() {
     this.channels = new Channel('');
   }
-
+  
   //
   getChannel(namespace = '', readOnly = true) {
     let channel = this.channels;
@@ -16,32 +16,33 @@ export default class Mediator {
     if (namespace === '') {
       return channel;
     }
-
+    
     namespaceSplit.some(namesp => {
       if (!channel.hasChannel(namesp)) {
         if (readOnly) {
           return true;
         } else {
           channel.addChannel(namesp);
+          channel = channel.returnChannel(namesp);
           return false;
         }
       }
       channel = channel.returnChannel(namesp);
     });
-
+    
     return channel;
   }
-
+  
   subscribe(channelName = '', fn, options = {}, context = {}) {
     let channel = this.getChannel(channelName, false);
     return channel.addSubscriber(fn, options, context);
   }
-
+  
   once(channelName, fn, options = {}, context) {
     options.calls = 1;
     return this.subscribe(channelName, fn, options, context);
   }
-
+  
   getSubscriber(identifier, channelName = '') {
     let channel = this.getChannel(channelName, true);
     if (channel.namespace !== channelName) {
@@ -49,7 +50,7 @@ export default class Mediator {
     }
     return channel.getSubscriber(identifier);
   }
-
+  
   remove(channelName = '', identifier) {
     let channel = this.getChannel(channelName, true);
     if (channel.namespace !== channelName) {
@@ -57,7 +58,7 @@ export default class Mediator {
     }
     channel.removeSubscriber(identifier);
   }
-
+  
   publish(channelName = '') {
     let channel = this.getChannel(channelName, true);
     if (channel.namespace !== channelName) {

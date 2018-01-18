@@ -53,9 +53,8 @@ export default class Channel {
   }
   
   setPriority(identifier, priority) {
-    let oldIndex = _.findIndex(
-      this.subscribers,
-      subscriber => subscriber.id === identifier
+    let oldIndex = _.findIndex(this.subscribers, subscriber =>
+      subscriber.id === identifier
     );
     let subscriber = this.subscribers.splice(oldIndex, 1)[0];
     this.subscribers.splice(priority, 0, subscriber);
@@ -63,7 +62,8 @@ export default class Channel {
   
   addChannel(channel) {
     this.channels[channel] = new Channel(
-      concatNamespace(this.namespace, channel), this
+      concatNamespace(this.namespace, channel),
+      this
     );
   }
   
@@ -81,8 +81,7 @@ export default class Channel {
     } else {
       let subscriberIndex = _.findIndex(
         this.subscribers,
-        subscriber => subscriber.id === identifier
-      );
+        subscriber => subscriber.id === identifier);
       this.subscribers.splice(subscriberIndex, 1, null);
     }
   }
@@ -95,7 +94,9 @@ export default class Channel {
           // 判断是否符合运行条件
           if (subscriber.options
             && typeof subscriber.options.predicate === 'function') {
-            if (subscriber.options.predicate.apply(subscriber.context, data)) {
+            if (subscriber.options.predicate.apply(
+                subscriber.context,
+                data)) {
               shouldCall = true;
             }
           } else {
@@ -103,7 +104,8 @@ export default class Channel {
           }
           if (shouldCall) {
             subscriber.fn.apply(subscriber.context, data);
-            if (subscriber.options && subscriber.options.calls !== undefined) {
+            if (subscriber.options
+              && subscriber.options.calls !== undefined) {
               subscriber.options.calls--;
               if (subscriber.options.calls < 1) {
                 this.removeSubscriber(subscriber.id);
@@ -118,7 +120,6 @@ export default class Channel {
       this.parent.publish();
     }
     this.stopped = false;
-    
   }
   
   stopPropagation() {
