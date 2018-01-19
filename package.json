@@ -13,7 +13,7 @@
     "style": "./node_modules/.bin/eslint --fix src test"
   },
   "gitHooks": {
-    "pre-commit": "lint-stage",
+    "pre-commit": "lint-staged",
     "commit-msg": "node script/verify-commit-msg.js"
   },
   "lint-staged": {
