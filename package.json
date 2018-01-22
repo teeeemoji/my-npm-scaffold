@@ -11,7 +11,8 @@
     "test": "./node_modules/.bin/mocha",
     "posttest": "open ./mochawesome-report/mochawesome.html",
     "style": "./node_modules/.bin/eslint --fix src test",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -w -r 0"
   },
   "gitHooks": {
     "pre-commit": "lint-staged",
@@ -43,6 +44,7 @@
     "babel-preset-env": "^1.6.1",
     "chai": "^4.1.2",
     "commitizen": "^2.9.6",
+    "conventional-changelog": "^1.1.7",
     "cz-conventional-changelog": "^2.1.0",
     "eslint": "^4.15.0",
     "eslint-config-fbjs": "^2.0.1",
@@ -57,7 +59,8 @@
     "mochawesome": "^3.0.1",
     "sinon": "^4.1.6",
     "sinon-chai": "^2.14.0",
-    "webpack": "^3.10.0"
+    "webpack": "^3.10.0",
+    "yorkie": "^1.0.3"
   },
   "config": {
     "commitizen": {
@@ -66,10 +69,6 @@
     "gitHooks": {
       "pre-commit": "lint-staged",
       "commit-msg": "node script/verify-commit-msg.js"
-    },
-    "ghooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "./script/verify-commit-msg.js"
     }
   }
 }
