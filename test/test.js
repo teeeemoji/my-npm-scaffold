@@ -13,7 +13,7 @@ describe('Mediator', function () {
   let mediator;
   
   beforeEach(function () {
-    
+    // 每个测试用例都从新 new 一个 Mediator 对象
     mediator = new Mediator();
   });
   
