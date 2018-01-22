@@ -6,7 +6,7 @@ chai.use(sinonChai);
 
 const expect = chai.expect;
 
-import {Mediator} from '../dist/index';
+import {Mediator} from '../src';
 
 describe('Mediator', function () {
   
@@ -56,18 +56,18 @@ describe('Mediator', function () {
       mediator.publish('test');
       mediator.publish('test');
       expect(mediator.getChannel('test').subscribers.length).to.equal(0);
-        expect(spy).calledOnce;
+      expect(spy).calledOnce;
     });
     
     it('通过 options.calls=3 订阅事件: 执行三次后被移出', function () {
       let spy = sinon.spy();
       let i;
-      mediator.subscribe('test', spy, {calls: 3})
+      mediator.subscribe('test', spy, {calls: 3});
       
       for (i = 0; i < 5; i++) {
         mediator.publish('test');
       }
-                 expect(mediator.getChannel('test').subscribers.length).to.equal(0);
+      expect(mediator.getChannel('test').subscribers.length).to.equal(0);
       expect(spy).calledThrice;
     });
     
