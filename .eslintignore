@@ -1,5 +1,4 @@
-# Third party
-**/node_modules
+dist
+mochawesome-report
 
-# Build products
-dist/
+node_modules
