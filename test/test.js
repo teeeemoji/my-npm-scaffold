@@ -14,7 +14,8 @@ describe('Mediator', function () {
   
   beforeEach(function () {
     // 每个测试用例都从新 new 一个 Mediator 对象
-    mediator = new Mediator();
+
+        mediator = new Mediator()
   });
   
   describe('初始化...', function () {
