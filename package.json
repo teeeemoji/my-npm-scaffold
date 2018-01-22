@@ -9,7 +9,7 @@
     "build": "./node_modules/.bin/webpack",
     "pretest": "npm run build",
     "test": "./node_modules/.bin/mocha",
-    "posttest": "open ./mochawesome-report/mochawesome.html",
+    "posttest": "is-ci || open ./mochawesome-report/mochawesome.html",
     "style": "./node_modules/.bin/eslint --fix src test",
     "commit": "git-cz",
     "release:note": "node scripts/gen-release-note.js"
@@ -54,6 +54,7 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.5.1",
     "eslint-plugin-relay": "0.0.20",
+    "is-ci": "^1.1.0",
     "lint-staged": "^6.0.1",
     "lodash": "^4.17.4",
     "mocha": "^5.0.0",

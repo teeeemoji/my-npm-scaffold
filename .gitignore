@@ -1,3 +1,6 @@
+#coverage test
+coverage.lcov
+
 # release note
 RELEASE_NOTE*.md
 
