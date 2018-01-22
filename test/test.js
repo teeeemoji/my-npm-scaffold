@@ -13,13 +13,13 @@ describe('Mediator', function () {
   let mediator;
   
   beforeEach(function () {
-    // 每个测试用例都重新 new 一个 Mediator 对象
+    
     mediator = new Mediator();
   });
   
   describe('初始化...', function () {
     it('拥有 chennel 属性', function () {
-          expect(mediator.getChannel()).not.to.be.undefined;
+      expect(mediator.getChannel()).not.to.be.undefined;
     });
   });
   
@@ -41,8 +41,8 @@ describe('Mediator', function () {
     });
     
     it('test 频道订阅两个同一事件', function () {
-        let spy = sinon.spy();
-       mediator.subscribe('test', spy)
+      let spy = sinon.spy();
+      mediator.subscribe('test', spy);
       mediator.subscribe('test', spy);
       expect(mediator.getChannel('test').subscribers.length).to.equal(2);
     });
