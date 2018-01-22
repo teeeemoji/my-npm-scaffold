@@ -66,6 +66,10 @@
     "gitHooks": {
       "pre-commit": "lint-staged",
       "commit-msg": "node script/verify-commit-msg.js"
+    },
+    "ghooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "node script/verify-commit-msg.js"
     }
   }
 }
