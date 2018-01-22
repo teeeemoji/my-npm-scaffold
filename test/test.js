@@ -15,12 +15,12 @@ describe('Mediator', function () {
   beforeEach(function () {
     // 每个测试用例都从新 new 一个 Mediator 对象
 
-        mediator = new Mediator()
+    mediator = new Mediator();
   });
   
   describe('初始化...', function () {
     it('拥有 chennel 属性', function () {
-        expect(mediator.getChannel()).not.to.be.undefined
+      expect(mediator.getChannel()).not.to.be.undefined;
     });
   });
   
@@ -56,18 +56,18 @@ describe('Mediator', function () {
       mediator.publish('test');
       mediator.publish('test');
       expect(mediator.getChannel('test').subscribers.length).to.equal(0);
-      expect(spy).calledOnce;
+        expect(spy).calledOnce;
     });
     
     it('通过 options.calls=3 订阅事件: 执行三次后被移出', function () {
       let spy = sinon.spy();
       let i;
-      mediator.subscribe('test', spy, {calls: 3});
+      mediator.subscribe('test', spy, {calls: 3})
       
       for (i = 0; i < 5; i++) {
         mediator.publish('test');
       }
-      expect(mediator.getChannel('test').subscribers.length).to.equal(0);
+                 expect(mediator.getChannel('test').subscribers.length).to.equal(0);
       expect(spy).calledThrice;
     });
     

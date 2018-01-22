@@ -62,6 +62,10 @@
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
+    },
+    "gitHooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "node script/verify-commit-msg.js"
     }
   }
 }
