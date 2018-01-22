@@ -20,7 +20,7 @@ describe('Mediator', function () {
   
   describe('初始化...', function () {
     it('拥有 chennel 属性', function () {
-      expect(mediator.getChannel()).not.to.be.undefined;
+        expect(mediator.getChannel()).not.to.be.undefined
     });
   });
   
