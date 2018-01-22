@@ -12,11 +12,11 @@
     "posttest": "open ./mochawesome-report/mochawesome.html",
     "style": "./node_modules/.bin/eslint --fix src test",
     "commit": "git-cz",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -w -r 0"
+    "release:note": "node scripts/gen-release-note.js"
   },
   "gitHooks": {
     "pre-commit": "lint-staged",
-    "commit-msg": "node script/verify-commit-msg.js"
+    "commit-msg": "node scripts/verify-commit-msg.js"
   },
   "lint-staged": {
     "*.js": [
@@ -65,10 +65,6 @@
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
-    },
-    "gitHooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "node script/verify-commit-msg.js"
     }
   }
 }
