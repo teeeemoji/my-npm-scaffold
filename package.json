@@ -69,7 +69,7 @@
     },
     "ghooks": {
       "pre-commit": "lint-staged",
-      "commit-msg": "node script/verify-commit-msg.js"
+      "commit-msg": "./script/verify-commit-msg.js"
     }
   }
 }
